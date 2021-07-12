@@ -109,11 +109,12 @@ let g:airline_symbols.crypt = "CR"
 set background=dark
 colorscheme palenight
 hi Normal  guibg=NONE guibg=NONE
+" 配置行号颜色，防止太浅
 hi LineNr  guibg=NONE guifg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
 set statusline=%1*\\      
 set termguicolors
-" hi User1 gui=none guifg=red guibg=none
+hi User1 gui=none guifg=red guibg=none
 
 " *.vim ************************************************************************
 source /home/lalala/.config/nvim/plug.d/undo.vim

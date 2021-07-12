@@ -95,6 +95,12 @@ sudo apt install ruby
 sudo apt install ruby2.5-dev
 sudo gem install neovim
 
+echo "install some language-server"
+sudo npm i -g vscode-langservers-extracted
+sudo npm install -g vim-language-server
+sudo npm install -g pyright
+sudo npm install -g typescript typescript-language-server
+
 echo "install clangd and ccls"
 sudo apt install clangd-9 -y
 sudo apt install snapd
