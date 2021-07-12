@@ -36,9 +36,9 @@ require('galaxyline').section.left[2]= {
       return false
       end,
     icon = '',
-    highlight = {colors.darkblue},
+    highlight = {colors.white},
     separator = '',
-    separator_highlight = {colors.darkblue},
+    separator_highlight = {colors.white},
   }
 }
 
@@ -62,7 +62,7 @@ require('galaxyline').section.left[4]= {
         return true
       end,
     icon = '',
-    highlight = {colors.red},
+    highlight = {colors.blue},
     separator = ' ',
     separator_highlight = {colors.darkblue},
   }
@@ -128,6 +128,15 @@ require('galaxyline').section.right[3]= {
 }
 
 require('galaxyline').section.right[4]= {
+	LineInfo = {
+		provider = 'LineColumn',
+		separator = ' ',
+		separator_highlight = {colors.white},
+		highlight = {colors.white},
+	}
+}
+
+require('galaxyline').section.right[5]= {
   LinePercent = {
     provider = 'LinePercent',
     condition = function()
