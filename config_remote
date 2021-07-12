@@ -1,0 +1,12 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+[branch "master"]
+[remote "gitee"]
+	url = git@gitee.com:Jyc-Code/env.git
+	fetch = +refs/heads/*:refs/remotes/gitee/*
+[remote "github"]
+	url = git@github.com:Jyc-Code/env.git
+	fetch = +refs/heads/*:refs/remotes/github/*

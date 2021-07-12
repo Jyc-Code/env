@@ -1,0 +1,21 @@
+{
+"languageserver": {
+	"ccls":{
+		"command": "ccls",
+		"filetypes": ["c", "cpp"],
+		"rootPatterns": ["compile_commands.json"],
+		"initializationOptions": {
+			"cache": {
+				"directory": "/tmp/ccls-cache"
+			},
+			"highlight": {"lsRanges": true}
+		}
+	}
+},
+"diagnostic.enableSign": false,
+"diagnostic.warningSign": "",
+"translator.engines":[
+	"google",
+	"youdao"
+]
+}

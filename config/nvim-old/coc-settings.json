@@ -1,0 +1,14 @@
+{
+"languageserver": {
+  "clangd": {
+    "command": "clangd",
+    "rootPatterns": ["compile_commands.json"],
+    "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+  }
+},
+"diagnostic.enableSign": false,
+"translator.engines":[
+	"google",
+	"youdao"
+]
+}

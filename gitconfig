@@ -1,0 +1,7 @@
+[user]
+	name = Jyc-code
+	email = 15888788015@163.com
+[http]
+	postBuffer = 524288000
+[core]
+    editor = vi 
