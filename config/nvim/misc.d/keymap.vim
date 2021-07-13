@@ -28,6 +28,10 @@ nnoremap q :q!<cr>
 nnoremap S :w<cr>
 nnoremap Z :wq!<cr>
 
+" nvim buffer 
+nnoremap bd :bd<cr>
+nnoremap bl :ls<cr>
+" nnoremap g
 nnoremap gw <c-w>w
 " nnoremap gs :split<cr>
 nnoremap gv :vsplit<cr>

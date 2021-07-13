@@ -6,14 +6,23 @@ export ZSH="/home/lalala/.oh-my-zsh"
 
 alias google-chrome_proxy='google-chrome-stable --proxy-server="socks5://127.0.0.1:7891;http://127.0.0.1:7890" 2>/dev/null'
 alias gic='git clone --depth=1'
-
-#start
-#export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7891
-
-#stop
+alias grep-e='grep -nR --exclude=*.{o,a,so,json,ini,c_bak,fuse*}*'
+# init proxy stop
 unset https_proxy
 unset http_proxy
-unset ALL_PROXY
+unset all_proxy
+#start
+function proxy_on() {
+	export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7891
+	echo "终端代理启动"
+}
+#stop
+function proxy_off() {
+	unset https_proxy
+	unset http_proxy
+	unset all_proxy
+	echo "终端代理关闭"
+}
 
 #解决zsh搜索* 时报错的问题
 setopt no_nomatch
@@ -118,4 +127,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # export PATH=$PATH:/usr/local/arm/arm-gcc-v5.3.1/bin/
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/ffmpeg/lib
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/ffmpeg/lib## Setup linux brew
+
+export PATH=$PATH:/usr/local/xm-tools/arm-xm-linux/usr/bin:/usr/local/xm-tools/arm-xmv2-linux/usr/bin:/usr/local/hi-tools/arm-himix100-linux/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/xm-tools/arm-xm-linux/usr/lib:/usr/local/xm-tools/arm-xmv2-linux/usr/lib:/usr/local/hi-tools/arm-himix100-linux/lib:/home/lalala/tools/opencv_pc/lib:/home/lalala/tools/ffmpeg-pc/lib
+# linux brew
+export LINUXBREWHOME=/home/linuxbrew/.linuxbrew
+export PATH=$LINUXBREWHOME/bin:$PATH
+export MANPATH=$LINUXBREWHOME/man:$MANPATH
+export PKG_CONFIG_PATH=$LINUXBREWHOME/lib64/pkgconfig:$LINUXBREWHOME/lib/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=$LINUXBREWHOME/lib64:$LINUXBREWHOME/lib:$LD_LIBRARY_PATH

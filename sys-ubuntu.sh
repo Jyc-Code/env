@@ -70,9 +70,9 @@ cd $(PATH_PWD)
 echo "neovim install"
 sudo apt install curl
 # 最新版本
-#curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 # neovim 4.4
-curl -LO https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage
+# curl -LO https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage
 chmod 777 nvim.appimage && mv nvim.appimage nvim
 sudo cp ./nvim /usr/bin
 sudo ln -s /usr/bin/nvim /usr/bin/vi
@@ -94,7 +94,10 @@ sudo apt-get purge ruby
 sudo apt install ruby
 sudo apt install ruby2.5-dev
 sudo gem install neovim
-
+echo "install bat"
+sudo apt install gdepi
+curl -LO https://github.com/sharkdp/bat/releases/download/v0.18.1/bat_0.18.1_amd64.deb
+sudo gdepi install bat_0.18.1_amd64.deb
 echo "install some language-server"
 sudo npm i -g vscode-langservers-extracted
 sudo npm install -g vim-language-server
@@ -111,4 +114,15 @@ sudo apt install fcitx -y
 sudo apt install fcitx-rime -y
 cp ./config/fcitx $(PATH_USER)/.config -rf
 
+brew install cmake gcc 
+echo "cmake need version > 3.12 ,gcc support c++17"
+curl -LO https://github.com/rizsotto/Bear/archive/refs/tags/3.0.13.tar.gz
+tar -zxvf 3.0.13.tar.gz
+cd Bear-3.0.13
+echo "go to Bear dir"
+cmake -DENABLE_UNIT_TESTS=OFF -DENABLE_FUNC_TESTS=OFF $BEAR_SOURCE_DIR
+make all
+make install
+echo "install /usr/local/"
+cd $(PATH_PWD)
 
