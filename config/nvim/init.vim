@@ -2,7 +2,7 @@
 call plug#begin('~/.config/nvim/autoload')
 Plug 'luochen1990/rainbow' " color ()
 Plug 'tomtom/tcomment_vim' " comment
-Plug 'vivy89/DoxygenToolkit.vim'
+Plug 'Jyc-Code/DoxygenToolkit.vim'
 Plug 'mhinz/vim-signify' " view git/svn sign at left
 Plug 'preservim/tagbar'
 Plug 'ludovicchabant/vim-gutentags' " create tags
@@ -38,7 +38,9 @@ Plug 'Yggdroot/indentLine'
 
 call plug#end()
 " ******************************************************************************
-
+" telescope-project
+nnoremap tr :Telescope lsp_references<cr>
+" Translate
 nmap <silent> rt <Plug>TranslateW
 vmap <silent> rt <Plug>TranslateWV
 
@@ -75,7 +77,9 @@ source /home/lalala/.config/nvim/plug.d/tags.vim
 source /home/lalala/.config/nvim/plug.d/nvimgdb.vim
 source /home/lalala/.config/nvim/plug.d/markdown.vim
 source /home/lalala/.config/nvim/plug.d/dashboard.vim
+source /home/lalala/.config/nvim/plug.d/DoxygenToolkit.vim
 
+" misc
 source /home/lalala/.config/nvim/misc.d/config.vim
 source /home/lalala/.config/nvim/misc.d/fun.vim
 source /home/lalala/.config/nvim/misc.d/keymap.vim

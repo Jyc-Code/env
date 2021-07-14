@@ -105,14 +105,19 @@ sudo npm install -g pyright
 sudo npm install -g typescript typescript-language-server
 
 echo "install clangd and ccls"
-sudo apt install clangd-9 -y
-sudo apt install snapd
-sudo snap install ccls --classic
+# sudo apt install clangd-9 -y
+# sudo apt install snapd
+# sudo snap install ccls --classic
 
 echo "install rime"
 sudo apt install fcitx -y
 sudo apt install fcitx-rime -y
 cp ./config/fcitx $(PATH_USER)/.config -rf
+
+echo "install linuxbrew"
+bash ./linuxbrew/uninstall.sh
+bash ./linuxbrew/install.sh
+bash ./linuxbrew/autoInitBrew.sh
 
 brew install cmake gcc 
 echo "cmake need version > 3.12 ,gcc support c++17"

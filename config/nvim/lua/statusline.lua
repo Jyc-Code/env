@@ -12,7 +12,17 @@ local GitBranch = vcs.get_git_branch
 
 require('galaxyline').section.left[1]= {
   FileName = {
-    provider = 'FileName',
+    provider = function()
+		return vim.api.nvim_exec(
+		[[
+			let FilePath = split(expand("%:p"),'/')
+			" 防止文件PATH 长度不足导致出错
+			call insert(FilePath,'')
+			call insert(FilePath,'')
+			echo join(FilePath[-3:-1],'/')
+		]],true
+		)
+	end,
     condition = function()
       if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
         return true
@@ -21,7 +31,7 @@ require('galaxyline').section.left[1]= {
       end,
     icon = '',
     highlight = {colors.red},
-    separator = '',
+    separator = ' ',
     separator_highlight = {colors.darkblue},
   }
 }
