@@ -3,6 +3,7 @@
 autocmd BufNewFile *.sh exec ":call Set_sh_Title()" 
 autocmd BufNewFile *.py exec ":call Set_py_Title()" 
 autocmd BufNewFile *.h exec ":call Set_h_Title()"
+autocmd BufNewFile *.c exec ":call Set_c_Title()"
 " autocmd BufWinEnter * silent call Copy_clang_format()
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -26,6 +27,24 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " endtry
 " endfunc
 
+" ******************************************************************************
+func Set_c_Title() 
+	call setline(1,"/************************************************************************") 
+	call append(line("."), "* file name: ".expand("%")) 
+	call append(line(".")+1, "* author: lalala") 
+	call append(line(".")+2, "* mail: ") 
+	call append(line(".")+3, "* introduction: ") 
+	call append(line(".")+4, "* created time: ".strftime("%c")) 
+	call append(line(".")+5, "*************************************************************************/") 
+	call append(line(".")+6, "#include <stdio.h>")
+	call append(line(".")+7, "")
+	call append(line(".")+8, "int main(int argc, char *argv[])")
+	call append(line(".")+9, "{")
+	call append(line(".")+10, "")
+	call append(line(".")+11, "    return 0;")
+	call append(line(".")+12, "}")
+	normal 15j
+endfunc 
 " ******************************************************************************
 func Set_h_Title()
 	if &filetype == 'cpp' 
