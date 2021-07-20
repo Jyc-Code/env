@@ -59,6 +59,7 @@ git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $(P
 git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $(PATH_USER)/.oh-my-zsh/plugins/zsh-autosuggestions
 
 cp ./zshrc $(PATH_USER)/.zshrc
+cp ./dircolors $(PATH_USER)/.dircolors
 
 echo "install google-chrome"
 sudo wget http://www.linuxidc.com/files/repo/google-chrome.list -P /etc/apt/sources.list.d/
