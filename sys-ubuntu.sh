@@ -132,3 +132,11 @@ make install
 echo "install /usr/local/"
 cd $(PATH_PWD)
 
+echo "rust install"
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+
+rustup update
+rustup component add rust-src
+# rustup +nightly component add rust-analyzer-preview
+brew install rust-analyzer
+sudonpm i -g bash-language-server
