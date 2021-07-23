@@ -28,13 +28,16 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
-Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/vim-vsnip'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'} " statusline
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 " 缩进
 Plug 'Yggdroot/indentLine'
+
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 call plug#end()
 " ******************************************************************************
@@ -78,7 +81,7 @@ source /home/lalala/.config/nvim/plug.d/nvimgdb.vim
 source /home/lalala/.config/nvim/plug.d/markdown.vim
 source /home/lalala/.config/nvim/plug.d/dashboard.vim
 source /home/lalala/.config/nvim/plug.d/DoxygenToolkit.vim
-
+" source /home/lalala/.config/nvim/plug.d/coc.vim
 " misc
 source /home/lalala/.config/nvim/misc.d/config.vim
 source /home/lalala/.config/nvim/misc.d/fun.vim
