@@ -17,10 +17,7 @@ cd $(PATH_PWD)
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 sudo ln -sf /home/lalala/.joplin/Joplin.AppImage /usr/bin/joplin 
 
-sudo apt install htop -y
-sudo apt install net-tools -y
-sudo apt install python -y
-sudo apt install python3 -y
+sudo apt install htop net-tools python python3 -y
 
 python $(PATH_PWD)/get-pip.py
 python3 $(PATH_PWD)/get-pip.py
@@ -29,8 +26,8 @@ cp -rf ./pip $(PATH_USER)/.pip
 
 echo "git config"
 # sudo apt install git -y
-git config --globe user.name "Jyc-Code"
-git config --globe user.email "15888788015@163.com"
+# git config --globe user.name "Jyc-Code"
+# git config --globe user.email "15888788015@163.com"
 cp ./gitconfig $(PATH_USER)/.gitconfig
 echo "install source code pro"
 sudo cp -rf ./code-font/source-code-pro /usr/share/fonts/truetype
@@ -46,8 +43,7 @@ git clone git@github.com:Jyc-Code/dwm.git
 
 # install some lib
 # cd st
-sudo apt install compton -y
-sudo apt install dmenu -y
+sudo apt install compton dmenu -y
 
 cd $(PATH_PWD)
 cp ./xinitrc $(PATH_USER)/.xinitrc
@@ -78,8 +74,7 @@ chmod 777 nvim.appimage && mv nvim.appimage nvim
 sudo cp ./nvim /usr/bin
 sudo ln -s /usr/bin/nvim /usr/bin/vi
 echo "install some nvim env"
-sudo apt install nodejs -y
-sudo apt install npm -y
+sudo apt install nodejs npm -y
 sudo npm config set registry https://registry.npm.taobao.org
 sudo npm config list
 sudo npm install -g n
@@ -92,8 +87,7 @@ sudo pip3 install --upgrade neovim
 echo "install ruby and gem"
 sudo add-apt-repository ppa:brightbox/ruby-ng
 sudo apt-get purge ruby
-sudo apt install ruby
-sudo apt install ruby2.5-dev
+sudo apt install ruby ruby2.5-dev -y
 sudo gem install neovim
 echo "install bat"
 sudo apt install gdepi
