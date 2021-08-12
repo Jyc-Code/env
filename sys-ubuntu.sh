@@ -7,28 +7,28 @@
 #!/bin/bash
 PATH_USER=/home/$(whoami)
 PATH_PWD=$(pwd)
-PATH_TOOLS=$(PATH_USER)/tools
+PATH_TOOLS=$PATH_USER/tools
 
-echo "config -->> $(PATH_USER)/.config && ssh -->> $(PATH_USER)/.ssh"
-cp -rf ./config/* $(PATH_USER)/.config 
-cp -rf ./ssh $(PATH_USER)/.ssh && cd $(PATH_USER)/.ssh && chmod 600 *
-cd $(PATH_PWD)
+echo "config -->> $PATH_USER/.config && ssh -->> $PATH_USER/.ssh"
+cp -rf ./config/* $PATH_USER/.config 
+cp -rf ./ssh $PATH_USER/.ssh && cd $PATH_USER/.ssh && chmod 600 *
+cd $PATH_PWD
 
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
 sudo ln -sf /home/lalala/.joplin/Joplin.AppImage /usr/bin/joplin 
 
 sudo apt install htop net-tools python python3 -y
 
-python $(PATH_PWD)/get-pip.py
-python3 $(PATH_PWD)/get-pip.py
+python $PATH_PWD/get-pip.py
+python3 $PATH_PWD/get-pip.py
 
-cp -rf ./pip $(PATH_USER)/.pip
+cp -rf ./pip $PATH_USER/.pip
 
 echo "git config"
 # sudo apt install git -y
 # git config --globe user.name "Jyc-Code"
 # git config --globe user.email "15888788015@163.com"
-cp ./gitconfig $(PATH_USER)/.gitconfig
+cp ./gitconfig $PATH_USER/.gitconfig
 echo "install source code pro"
 sudo cp -rf ./code-font/source-code-pro /usr/share/fonts/truetype
 sudo fc-cache -f -v
@@ -37,7 +37,7 @@ echo "install st and dwm"
 if [ ! -d $PATH_TOOLS ];
 then mkdir $PATH_TOOLS;
 fi
-cd $(PATH_TOOLS)
+cd $PATH_TOOLS
 git clone git@github.com:Jyc-Code/st.git
 git clone git@github.com:Jyc-Code/dwm.git
 
@@ -45,17 +45,17 @@ git clone git@github.com:Jyc-Code/dwm.git
 # cd st
 sudo apt install compton dmenu -y
 
-cd $(PATH_PWD)
-cp ./xinitrc $(PATH_USER)/.xinitrc
+cd $PATH_PWD
+cp ./xinitrc $PATH_USER/.xinitrc
 
 echo "install zsh"
 sudo apt install zsh -y
 ./install_om_zsh.sh
-git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $(PATH_USER)/.oh-my-zsh/plugins/zsh-syntax-highlighting
-git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $(PATH_USER)/.oh-my-zsh/plugins/zsh-autosuggestions
+git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $PATH_USER/.oh-my-zsh/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $PATH_USER/.oh-my-zsh/plugins/zsh-autosuggestions
 
-cp ./zshrc $(PATH_USER)/.zshrc
-cp ./dircolors $(PATH_USER)/.dircolors
+cp ./zshrc $PATH_USER/.zshrc
+cp ./dircolors $PATH_USER/.dircolors
 
 echo "install google-chrome"
 sudo wget http://www.linuxidc.com/files/repo/google-chrome.list -P /etc/apt/sources.list.d/
@@ -63,7 +63,7 @@ wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key a
 sudo apt update
 sudo apt install google-chrome-stable -y
 
-cd $(PATH_PWD)
+cd $PATH_PWD
 echo "neovim install"
 sudo apt install curl
 # 最新版本
@@ -81,7 +81,7 @@ sudo npm install -g n
 sudo n stable
 sudo npm install -g neovim
 
-cp ./config/nvim $(PATH_USER)/.config
+cp ./config/nvim $PATH_USER/.config
 sudo pip install --upgrade neovim
 sudo pip3 install --upgrade neovim
 echo "install ruby and gem"
@@ -107,7 +107,7 @@ echo "install clangd and ccls"
 echo "install rime"
 sudo apt install fcitx -y
 sudo apt install fcitx-rime -y
-cp ./config/fcitx $(PATH_USER)/.config -rf
+cp ./config/fcitx $PATH_USER/.config -rf
 
 echo "install linuxbrew"
 bash ./linuxbrew/uninstall.sh
@@ -124,7 +124,7 @@ cmake -DENABLE_UNIT_TESTS=OFF -DENABLE_FUNC_TESTS=OFF $BEAR_SOURCE_DIR
 make all
 make install
 echo "install /usr/local/"
-cd $(PATH_PWD)
+cd $PATH_PWD
 
 echo "rust install"
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
