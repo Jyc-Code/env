@@ -14,8 +14,8 @@ cp -rf ./config/* $PATH_USER/.config
 cp -rf ./ssh $PATH_USER/.ssh && cd $PATH_USER/.ssh && chmod 600 *
 cd $PATH_PWD
 
-wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
-sudo ln -sf /home/lalala/.joplin/Joplin.AppImage /usr/bin/joplin 
+# wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+# sudo ln -sf /home/lalala/.joplin/Joplin.AppImage /usr/bin/joplin 
 
 sudo apt install htop net-tools python python3 -y
 
@@ -33,10 +33,17 @@ echo "install source code pro"
 sudo cp -rf ./code-font/source-code-pro /usr/share/fonts/truetype
 sudo fc-cache -f -v
 
+sudo mkdir -p /usr/local/openssl/certs
+cd /usr/local/openssl/certs
+wget http://curl.haxx.se/ca/cacert.pem
+
 echo "install st and dwm"
 if [ ! -d $PATH_TOOLS ];
 then mkdir $PATH_TOOLS;
 fi
+
+# x11proto-xext-dev libxcb-xinerama0-dev
+sudo apt install libx11-dev libxft-dev libxinerama-dev libxext-dev -y
 cd $PATH_TOOLS
 git clone git@github.com:Jyc-Code/st.git
 git clone git@github.com:Jyc-Code/dwm.git
