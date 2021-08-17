@@ -14,10 +14,10 @@ cp -rf ./config/* $PATH_USER/.config
 cp -rf ./ssh $PATH_USER/.ssh && cd $PATH_USER/.ssh && chmod 600 *
 cd $PATH_PWD
 
-# wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
-# sudo ln -sf /home/lalala/.joplin/Joplin.AppImage /usr/bin/joplin 
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+sudo ln -sf /home/lalala/.joplin/Joplin.AppImage /usr/bin/joplin 
 
-sudo apt install htop net-tools python python3 -y
+sudo apt install htop net-tools python python3 python3-distutils -y
 
 python $PATH_PWD/get-pip.py
 python3 $PATH_PWD/get-pip.py
@@ -33,16 +33,13 @@ echo "install source code pro"
 sudo cp -rf ./code-font/source-code-pro /usr/share/fonts/truetype
 sudo fc-cache -f -v
 
-sudo mkdir -p /usr/local/openssl/certs
-cd /usr/local/openssl/certs
-wget http://curl.haxx.se/ca/cacert.pem
+sudo cp -rvf ./apt /etc
 
 echo "install st and dwm"
 if [ ! -d $PATH_TOOLS ];
 then mkdir $PATH_TOOLS;
 fi
 
-# x11proto-xext-dev libxcb-xinerama0-dev
 sudo apt install libx11-dev libxft-dev libxinerama-dev libxext-dev -y
 cd $PATH_TOOLS
 git clone git@github.com:Jyc-Code/st.git
@@ -107,9 +104,11 @@ sudo npm install -g pyright
 sudo npm install -g typescript typescript-language-server
 
 echo "install clangd and ccls"
-# sudo apt install clangd-9 -y
+sudo apt install clangd-12 -y
+sudo ln -s /usr/lib/llvm-12/bin/clangd /usr/local/bin/clangd
 # sudo apt install snapd
 # sudo snap install ccls --classic
+
 
 echo "install rime"
 sudo apt install fcitx -y
@@ -123,6 +122,7 @@ bash ./linuxbrew/autoInitBrew.sh
 
 brew install cmake gcc 
 echo "cmake need version > 3.12 ,gcc support c++17"
+brew install fmt spdlog nlohmann-json grpc pkg-config
 curl -LO https://github.com/rizsotto/Bear/archive/refs/tags/3.0.13.tar.gz
 tar -zxvf 3.0.13.tar.gz
 cd Bear-3.0.13
@@ -140,4 +140,4 @@ rustup update
 rustup component add rust-src
 # rustup +nightly component add rust-analyzer-preview
 brew install rust-analyzer
-sudonpm i -g bash-language-server
+sudo npm i -g bash-language-server
